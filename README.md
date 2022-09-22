@@ -1,1 +1,1 @@
-# Lung_Adenocarcinoma
+# Code for Lung Adenocarcinoma (GTEx and TCGA)
