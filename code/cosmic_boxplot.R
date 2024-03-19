@@ -44,6 +44,8 @@ fulldata$sample_type = c(rep("Healthy", nrow(tab_subset)), rep("Tumor", nrow(tab
 
 maintitle = paste(gene_type, "Targeting:", category, "(Female - Male)", sep = " ")
 ggplot(fulldata, aes(x = sample_type, y = tStat)) + geom_boxplot() + theme_bw() + ggtitle(maintitle) + xlab("") + ylab("gene t-statistic (female - male)") + geom_hline(yintercept=0, linetype="dashed",color = "red")
+# Violinplot with jitters
+ggplot(fulldata, aes(x = sample_type, y = tStat)) + geom_violin() + geom_jitter() + theme_bw() + ggtitle(maintitle) + xlab("") + ylab("gene t-statistic (female - male)") + geom_hline(yintercept=0, linetype="dashed",color = "red")
 
 
 gene_type = "Tumor Suppresor Gene"
@@ -56,3 +58,5 @@ fulldata$sample_type = c(rep("Healthy", nrow(tab_subset)), rep("Tumor", nrow(tab
 
 maintitle = paste(gene_type, "Targeting:", category, "(Female - Male)", sep = " ")
 ggplot(fulldata, aes(x = sample_type, y = tStat)) + geom_boxplot() + theme_bw() + ggtitle(maintitle) + xlab("") + ylab("gene t-statistic (female - male)") + geom_hline(yintercept=0, linetype="dashed",color = "red")
+# Violinplot with jitters
+ggplot(fulldata, aes(x = sample_type, y = tStat)) + geom_violin() + geom_jitter() + theme_bw() + ggtitle(maintitle) + xlab("") + ylab("gene t-statistic (female - male)") + geom_hline(yintercept=0, linetype="dashed",color = "red")
