@@ -52,7 +52,7 @@ sexDiff_heatmaps.R
 GTEx_xcell_bubbleplot.R
 		
 		
-# Table 1	Clinical characteristics of the discovery and validation datasets
+# Table 1: Clinical characteristics of the discovery and validation datasets
 Manual
 		
 # Table C.1: Sex difference in response to cancer therapeutics targeting PD-1 and PDL-1.
