@@ -214,3 +214,41 @@ heatmap.2(as.matrix(tab_subset),density.info="none",trace="none",col=mycol2,symb
                                 cexRow=1.5, cexCol=1.5, srtCol = 0, keysize=0.5, mar=c(20,50), key.title=NULL, key.xlab="NES", Colv = F)
 dev.off()
 
+######################################################
+###### Heatmap 6: CPTAC2020 Smoker-Nonsmoker ####
+
+tcga_nonsmoker = get(load("~/Recount3_GTEx_TCGA_Data/TPM_expression/newdata2023/limma_GSEA/gsea_TCGA_nonsmoker.RData"))
+tcga_smoker = get(load("~/Recount3_GTEx_TCGA_Data/TPM_expression/newdata2023/limma_GSEA/gsea_TCGA_smoker.RData"))
+
+tcga_smoker = tcga_smoker[match(tcga_nonsmoker$pathway, tcga_smoker$pathway),]
+
+nonsmoker = get(load("~/validation_data/validation_newdata2023/validation_limma_GSEA/gsea_CPTAC2020_nonsmoker.RData"))
+smoker = get(load("~/validation_data/validation_newdata2023/validation_limma_GSEA/gsea_CPTAC2020_smoker.RData"))
+
+nonsmoker = nonsmoker[match(tcga_nonsmoker$pathway, nonsmoker$pathway),]
+smoker = smoker[match(tcga_nonsmoker$pathway, smoker$pathway),]
+
+tab = cbind(nonsmoker$NES, smoker$NES)
+
+rownames(tab) = nonsmoker$pathway
+head(tab)
+
+# Significant Pathways
+sig_pathways = rownames(tab)[which((tcga_nonsmoker$padj<0.05) | (tcga_smoker$padj<0.05))]
+tab_subset = tab[which(rownames(tab) %in% sig_pathways),]
+
+colnames(tab_subset) = c("Nonsmoker", "Smoker")
+rownames(tab_subset) = stringr::str_to_title(lapply(strsplit(rownames(tab_subset), split = "_"), function(x){paste(x[-1], collapse = " ")}))
+
+# Make heatmap comparing all groups
+
+library(ggplot2)
+library(gplots)
+library(RColorBrewer)
+
+mycol2 <- colorRampPalette(rev(brewer.pal(11,"RdBu")))(50)
+pdf("/home/esaha/paper_plots/plots2023/heatmaps/CPTAC2020_smoker_nonsmoker_heatmap.pdf",h=25,w=16)
+heatmap_tcga_stages = heatmap.2(as.matrix(tab_subset),density.info="none",trace="none",col=mycol2,symbreaks=T,symkey=T, 
+                                cexRow=1.5, cexCol=1.5, srtCol = 0, keysize=0.5, mar=c(20,50), key.title=NULL, key.xlab="NES", Colv = F)
+dev.off()
+
