@@ -60,7 +60,7 @@ validation_GIS031_limma_smoking
 		
 ######## Main Tables	
 # Table 1: Clinical characteristics of the discovery and validation datasets
-Manual
+Filled in manually with demographic_table.R
 
 ######## Supplementary Tables
 # Table C.1: Sex difference in response to cancer therapeutics targeting PD-1 and PDL-1.
