@@ -32,6 +32,11 @@ theme_set(bigstatsr::theme_bigstatsr(0.8))
 qplot(U[, 1], U[, 2], main = "PCA of Y genes: GSE68465", colour = gender) + coord_equal() + xlab("PC1") +ylab("PC2")
 
 # Samples to exclude because of sex-misannotation
+# U[,1] refers to the first principal component of the expression of all genes on the Y chromosome. 
+# From a scatterplot of the first two principal components we observed 
+# that for almost all female samples the values of the first principal component were lager than 0 
+# and for almost all male samples the values were smaller than 2.5. 
+# The samples that violated these conditions were excluded from the analysis as they clustered with the opposite sex. 
 female_wrong = colnames(Y_expr)[which(U[,1] <0 & gender == "Female")]
 male_wrong = colnames(Y_expr)[which(U[,1] > 2.5 & gender == "Male")]
 sex_unknown = phenotypes$V1[which(is.na(phenotypes$Sex.ch1))]
