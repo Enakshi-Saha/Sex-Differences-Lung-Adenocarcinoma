@@ -67,19 +67,19 @@ Filled in manually with demographic_table.R
 Manual
 
 # Table E.1: Distribution of Clinical Variables by Sex in GTEx.	
-demographic_table.R
+table_sexStratified_clinicalVariable.R
 
 # Table E.2: Distribution of Clinical Variables by Sex in TCGA
-demographic_table.R
+table_sexStratified_clinicalVariable.R
 
 # Table E.3: Distribution of Clinical Variables by Sex in LGRC
-demographic_table.R
+table_sexStratified_clinicalVariable.R
 
 # Table E.4: Distribution of Clinical Variables by Sex in GSE68465
-demographic_table.R
+table_sexStratified_clinicalVariable.R
 
 # Table E.5: Distribution of Clinical Variables among individuals who received chemotherapy versus those who did not, in TCGA dataset.
-TCGA_survival.R
+table_sexStratified_clinicalVariable.R
 
 ######## Supplementary Data
 # Data S1: Sex difference in all edges in GTEx nonsmokers
