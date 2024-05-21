@@ -137,6 +137,11 @@ qplot(U[, 1], U[, 2], main = "TCGA: PCA of Y genes", colour = cols, xlab = "PC1"
 
 # Find sex-misannotated samples
 # GTEx_misannotated = colnames(GTEx_TPM)[which(U.GTEx[,1] < 0 & GTEx_sex == "FEMALE")]
+# Samples to exclude because of sex-misannotation
+# U.TCGA[,1] refers to the first principal component of the expression of all genes on the Y chromosome. 
+# From a scatterplot of the first two principal components we observed 
+# that for almost all female samples the values of the first principal component were smaller than 0.
+# The samples that violated these conditions were excluded from the analysis as they clustered with the opposite sex. 
 TCGA_misannotated = colnames(TCGA_TPM)[intersect(which(U.TCGA[,1] > 0), which(TCGA_sex == "FEMALE"))]
 # exclude 1 sample with gender = "NA" in TCGA
 TCGA_misannotated  = c(TCGA_misannotated, rownames(TCGA_phenotypes)[is.na(TCGA_phenotypes$tcga.cgc_case_gender)])
