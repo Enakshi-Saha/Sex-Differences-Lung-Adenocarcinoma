@@ -11,7 +11,7 @@ Two independent studies from the Gene Expression Omnibus (GEO) were used as vali
 ## Constructing Individual-specific Gene Regulatory Networks
 PANDA and LIONESS algorithms were used to construct individual sample-specific gene regulatory networks from the discovery and validation datasets, using Python package netzooPy version 0.9.10. In addition to the gene expression data, two other data sources were utilized to construct the regulatory networks: Transcription factor/target gene regulatory prior (derived by mapping Transcription factor motifs from the Catalog of Inferred Sequence Binding Preferences (CIS-BP) to the promoter of target genes) and protein-protein interaction (using the interaction scores from StringDb v11.5 between all Transcription factor in the regulatory prior).
 
-The networks are publicly available on the GRAND database: https://grand.networkmedicine.org/downloads/
+The indegree matrices computed from the individual-specific regulatory networks are publicly available on the GRAND database: https://grand.networkmedicine.org/downloads/
 
 ## Code
 R code for replicating the analysis are documented in README.txt
