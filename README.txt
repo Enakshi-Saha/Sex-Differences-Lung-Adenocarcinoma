@@ -94,4 +94,9 @@ TCGA_limma_GSEA.R
 # Data S4: Sex difference in all edges in TCGA smokers
 TCGA_limma_GSEA.R
 
+# Data S5: CLUEreg output for males
+CLUEreg_male_drugs.csv
+
+# Data S6: CLUEreg output for females
+CLUEreg_female_drugs.csv
 		
